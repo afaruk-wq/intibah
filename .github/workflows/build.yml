@@ -1,0 +1,29 @@
+yamlname: Build Windows EXE
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Node.js Kur
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Bağımlılıkları Yükle
+        run: npm install
+
+      - name: EXE Oluştur
+        run: npm run build:win
+
+      - name: EXE'yi İndir
+        uses: actions/upload-artifact@v4
+        with:
+          name: intihab-windows
+          path: dist/*.exe
