@@ -19,6 +19,7 @@ function createWindow() {
     minHeight: 600,
     title: 'İNTİHAB — Osmanlı Seçim Simülasyonu',
     backgroundColor: '#110a04',
+    show: false,
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true,
@@ -28,11 +29,9 @@ function createWindow() {
 
   win.loadFile('index.html')
   win.setMenuBarVisibility(false)
-
-  // Geliştirme modunda DevTools aç
-  // win.webContents.openDevTools()
+  win.maximize()
+  win.show()
 }
-
 // ── Kayıt / Yükleme IPC ──────────────────────────────
 
 ipcMain.handle('save-game', (event, slot, gameState) => {
