@@ -1,4 +1,4 @@
-yamlname: Build Windows EXE
+name: Build Windows EXE
 
 on:
   push:
@@ -16,13 +16,13 @@ jobs:
         with:
           node-version: 20
 
-      - name: Bağımlılıkları Yükle
+      - name: Bagimliliklari Yukle
         run: npm install
 
-      - name: EXE Oluştur
+      - name: EXE Olustur
         run: npm run build:win
 
-      - name: EXE'yi İndir
+      - name: EXEyi Indir
         uses: actions/upload-artifact@v4
         with:
           name: intihab-windows
